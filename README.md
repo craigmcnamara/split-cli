@@ -1,5 +1,7 @@
 # Split::Cli
 
+[![Build Status](https://travis-ci.org/craigmcnamara/split-cli.svg)](https://travis-ci.org/craigmcnamara/split-cli)
+
 Add a CLI so Split can be used in unfamiliar situations and bad circumstances. I'm looking at you PHP.
 
 ## Installation

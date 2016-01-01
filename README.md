@@ -37,7 +37,7 @@ Usage: split-cli [ab_test|finished] session_id experiment_name
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/craigmcnamara/split-cli. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/craigmcnamara/split-cli. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](https://github.com/craigmcnamara/split-cli/blob/master/CODE_OF_CONDUCT.md) code of conduct.
 
 
 ## License

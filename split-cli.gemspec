@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://github.com/craigmcnamara/split-cli"
   spec.license       = "MIT"
 
-  spec.metadata['allowed_push_host'] = 'http://rubygems.org'
+  spec.metadata['allowed_push_host'] = 'https://rubygems.org'
   
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.bindir        = "exe"

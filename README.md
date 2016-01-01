@@ -22,13 +22,15 @@ Or install it yourself as:
 
 ## Usage
 
-Supported Options
+Supported environment variables
 ```shell
 REDIS_URL              # default 'localhost:6379'
 SPLIT_YAML_CONFIG      # required
 SPLIT_MULTI_EXPERIMENT # default true
 REDIS_NAMESPACE        # optional
 ```
+
+Basic Usage
 
 ```shell
 $ split-cli
@@ -37,6 +39,11 @@ Usage: split-cli [ab_test|finished] session_id experiment_name
     -m, --multi                      Participate in multiple experiments. Default: true
     -r, --redis [url]                Redis URL
     -n, --namespace [namespace]      Redis namespace
+
+$ split-cli ab_test session_id experiment_name
+variant_x # ab_test command returns the string of the variant chosen
+
+$ split-cli finished session_id experiment_name # no output and zero return is success
 ```
 
 ## Contributing

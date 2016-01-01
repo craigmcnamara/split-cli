@@ -9,6 +9,22 @@ options = {}
 
 parser = OptionParser.new do |opts|
   opts.banner = "Usage: split-cli [ab_test|finished] session_id experiment_name"
+
+  opts.on("-c", "--config [path]", "Path to Split YAML config") do |c|
+    options[:config_path] = c
+  end
+
+  opts.on("-m", "--multi", "Participate in multiple experiments. Default: true") do |m|
+    options[:allow_multiple_experiments] = m
+  end
+
+  opts.on("-r", "--redis [url]", "Redis URL") do |r|
+    options[:redis_url] = r
+  end
+
+  opts.on("-n", "--namespace [namespace]", "Redis namespace") do |n|
+    options[:redis_namespace] = n
+  end
 end
 
 parser.parse!
@@ -22,13 +38,15 @@ else
 
   begin
     raise(Split::Cli::CommandError, "No session_id") unless session_id = args.shift
-    result = Split::Cli::Session.new(session_id).method(command).call(*args)
+    result = Split::Cli::Session.new(session_id, options).method(command).call(*args)
     puts result if result.is_a?(String)
   rescue Split::Cli::CommandError => e
-    puts e.message 
+    puts e.message
+    puts parser
     exit 1
   rescue NameError => e
     puts 'Invalid split-cli operation'
+    puts parser
     exit 1
   end
 end

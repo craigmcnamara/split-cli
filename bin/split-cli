@@ -1,0 +1,38 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+require "split/cli"
+require 'pry'
+
+require 'optparse'
+
+options = {}
+
+parser = OptionParser.new do |opts|
+  opts.banner = "Usage: split-cli [ab_test|finished] session_id experiment_name"
+  # opts.on("-v", "--[no-]verbose", "Run verbosely") do |v|
+  #   options[:verbose] = v
+  # end
+end
+
+parser.parse!
+
+if ARGV.empty?
+  puts parser
+  exit 1
+else
+  args = ARGV.dup
+  command = args.shift.to_sym
+
+  begin
+    raise(Split::Cli::CommandError, "No session_id") unless session_id = args.shift
+    Split::Cli::Session.new(session_id).method(command).call(*args)
+  rescue Split::Cli::CommandError => e
+    puts e.message 
+    exit 1
+  rescue NameError => e
+    puts 'Invalid split-cli operation'
+    exit 1
+  end
+
+end

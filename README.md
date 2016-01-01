@@ -33,6 +33,10 @@ REDIS_NAMESPACE        # optional
 ```shell
 $ split-cli
 Usage: split-cli [ab_test|finished] session_id experiment_name
+    -c, --config [path]              Path to Split YAML config
+    -m, --multi                      Participate in multiple experiments. Default: true
+    -r, --redis [url]                Redis URL
+    -n, --namespace [namespace]      Redis namespace
 ```
 
 ## Contributing

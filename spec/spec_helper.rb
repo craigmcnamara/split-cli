@@ -1,6 +1,5 @@
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'split/cli'
-require 'pry'
 
 spec_root = Pathname.new(File.dirname(File.expand_path(__FILE__)))
 

@@ -23,7 +23,8 @@ else
 
   begin
     raise(Split::Cli::CommandError, "No session_id") unless session_id = args.shift
-    Split::Cli::Session.new(session_id).method(command).call(*args)
+    result = Split::Cli::Session.new(session_id).method(command).call(*args)
+    puts result if result.is_a?(String)
   rescue Split::Cli::CommandError => e
     puts e.message 
     exit 1
@@ -31,5 +32,4 @@ else
     puts 'Invalid split-cli operation'
     exit 1
   end
-
 end

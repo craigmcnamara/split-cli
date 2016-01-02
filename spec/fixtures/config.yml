@@ -1,3 +1,7 @@
+homepage:
+  alternatives:
+    - "x"
+    - "y"
 my_first_experiment:
   alternatives:
     - "a"

@@ -24,10 +24,10 @@ Or install it yourself as:
 
 Supported environment variables
 ```shell
+SPLIT_YAML_CONFIG      # required 'path/to.yml'
 REDIS_URL              # default 'localhost:6379'
-SPLIT_YAML_CONFIG      # required
 SPLIT_MULTI_EXPERIMENT # default true
-REDIS_NAMESPACE        # optional
+REDIS_NAMESPACE        # default 'split'
 ```
 
 Basic Usage

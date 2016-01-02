@@ -29,7 +29,7 @@ module Split
 
       def config_split!
         Split.redis = options.fetch :redis_url, ENV.fetch('REDIS_URL', 'localhost:6379')
-        Split.redis.namespace = options.fetch :redis_namespace, ENV['REDIS_NAMESPACE']
+        Split.redis.namespace = options.fetch :redis_namespace, ENV.fetch('REDIS_NAMESPACE', 'split')
 
         Split.configure do |config|
           config.persistence = Split::Persistence::RedisAdapter.with_config(lookup_by: -> (cli) { cli.session_id })

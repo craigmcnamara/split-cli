@@ -31,4 +31,12 @@ describe Split::Cli::Session do
     end
 
   end
+
+  describe 'robots' do
+    let!(:robot) { Split::Cli::Session.new('googlebot', user_agent: 'Googlebot/2.1 (+http://www.google.com/bot.html') }
+
+    it 'does not count them' do
+      expect(robot.is_robot?).to_not be_nil
+    end
+  end
 end

@@ -1,4 +1,5 @@
 require 'split'
+require 'split/cli/request'
 require 'split/cli/session'
 require 'split/cli/version'
 
